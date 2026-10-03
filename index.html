@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Script Python - DeepSeek</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <div class="container">
+    <header class="header">
+      <h1>Script Python - Chat DeepSeek</h1>
+      <button id="btnDownload" class="btn-download">⬇️ Baixar .py</button>
+    </header>
+
+    <!-- Código Python exibido na tela -->
+    <pre><code id="codigoPython">import opendeep
+from opendeep import GenerativeModel
+import re
+
+TOKEN_DEEPSEEK = "SEU_USER_TOKENS"
+
+# Configura a conexão e o modelo
+opendeep.configure(api_key=TOKEN_DEEPSEEK)
+model = GenerativeModel("deepseek-v4-pro")
+
+print("=" * 45)
+print("🤖 Chat com DeepSeek iniciado! (Digite 'sair' para encerrar)")
+print("=" * 45)
+
+while True:
+    pergunta = input("\nVocê: ")
+    
+    # Condição para fechar o chat
+    if pergunta.strip().lower() in ["sair", "exit", "quit"]:
+        print("Encerrando o chat...")
+        break
+    
+    if not pergunta.strip():
+        continue
+    
+    print("DeepSeek pensando...")
+    
+    # Envia a mensagem para a IA
+    resposta = model.generate_content(pergunta)
+    
+    # Extrai o texto da resposta
+    texto = resposta.text if hasattr(resposta, "text") else str(resposta)
+    
+    # Remove as tags internas de pensamento (<think>...</think>) caso a IA mande
+    texto_limpo = re.sub(r'&lt;think&gt;.*?&lt;/think&gt;', '', texto, flags=re.DOTALL).strip()
+    
+    print(f"\nDeepSeek: {texto_limpo}")</code></pre>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0d1117;
+  color: #c9d1d9;
+  padding: 40px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  width: 100%;
+  max-width: 850px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+h1 {
+  font-size: 1.5rem;
+  color: #58a6ff;
+}
+
+.btn-download {
+  background-color: #238636;
+  color: #ffffff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-download:hover {
+  background-color: #2ea043;
+}
+
+pre {
+  background-color: #161b22;
+  border: 1px solid #30363d;
+  border-radius: 8px;
+  padding: 20px;
+  overflow-x: auto;
+}
+
+code {
+  font-family: "Consolas", "Fira Code", monospace;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #e6edf3;
+  white-space: pre;
+}
